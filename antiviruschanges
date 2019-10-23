@@ -1,0 +1,4 @@
+ConfigurationChange
+| where ConfigChangeType == "Software"
+| where SoftwareName contains "Antivirus"
+| project TimeGenerated, Computer, ConfigChangeType, ChangeCategory, SoftwareType, SoftwareName, SourceComputerId 
