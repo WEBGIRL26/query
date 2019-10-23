@@ -1,0 +1,4 @@
+WConfigurationChange
+| where ConfigChangeType == "System" 
+| where RegistryKey contains "KnownDlls"
+| where TimeGenerated > ago(30d)
