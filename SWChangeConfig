@@ -1,0 +1,3 @@
+ConfigurationChange
+| where ConfigChangeType == "Software" and ChangeCategory == "Modified"
+| order by TimeGenerated desc
