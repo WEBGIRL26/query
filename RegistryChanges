@@ -1,0 +1,1 @@
+search in (ConfigurationChange) ConfigChangeType == "Registry" | summarize AggregatedValue = count() by Computer | limit 500000 // Oql: Type=ConfigurationChange ConfigChangeType=Registry | Measure count() by Computer  | top 500000
