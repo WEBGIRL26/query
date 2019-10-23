@@ -1,0 +1,6 @@
+ConfigurationChange
+| where ConfigChangeType == "Files"
+| where FileSystemPath contains "App_data\\config\\*.config"
+| where TimeGenerated > datetime("2019-09-01") and TimeGenerated < datetime("2019-09-30")
+| order by FileSystemPath
+| project Computer, ConfigChangeType, ChangeCategory, SourceComputerId, Name, FileSystemPath
