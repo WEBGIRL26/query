@@ -1,0 +1,6 @@
+ConfigurationChange
+| where ConfigChangeType == "Files"
+| where Name == "web.config"
+| where TimeGenerated > datetime("2019-09-01") and TimeGenerated < datetime("2019-09-30")
+| order by FileSystemPath
+| project Computer, ConfigChangeType, ChangeCategory, SourceComputerId, Name, FileSystemPath 
