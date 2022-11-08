@@ -1,0 +1,23 @@
+/ Reported errors 
+// Show error events from the last hour. 
+// To create an alert for this query, click '+ New alert rule'
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+
+// Reported errors 
+// Show error events from the 3 days. 
+// To create an alert for this query, click '+ New alert rule'
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(3d)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+
+// Reported errors 
+// Show error events from the range of dates. 
+// To create an alert for this query, click '+ New alert rule'
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > datetime("2022-11-07") and TimeGenerated < datetime("2022-11-08")
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
